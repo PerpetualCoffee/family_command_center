@@ -1,10 +1,10 @@
 # Project Plan: Family_Command_Center (Python Edition)
 
-A ~30-hour personal engineering project to build, deploy, and mount a centralized household dashboard on a touchscreen Chromebook.
+A ~30-hour personal engineering project to build and deploy a centralised household dashboard on a local device.
 
 ---
 
-## 📅 Core Development Phases (V1)
+## Core Development Phases (V1)
 
 ### Phase 1: Core FastAPI Server & Boilerplate (Hours 1–5)
 * [ ] Initialize repository, `requirements.txt`, and virtual environment.
@@ -16,6 +16,7 @@ A ~30-hour personal engineering project to build, deploy, and mount a centralize
 * [ ] Write a Python HTTP client function to fetch the `.ics` calendar feed URL securely from environment variables.
 * [ ] Integrate an `.ics` parsing library to extract event titles, dates, and times.
 * [ ] Pass parsed event data from Python into the Jinja2 HTML template.
+* [ ] Offline JSON Caching: Fallback data storage so temporary Wi-Fi drops don't break the wall display.
 * **Verification:** The dashboard dynamically displays upcoming Apple/iCloud events.
 
 ### Phase 3: Task & Grocery Integration & UI Polish (Hours 16–25)
@@ -24,17 +25,19 @@ A ~30-hour personal engineering project to build, deploy, and mount a centralize
 * [ ] Add a 60-second auto-refresh meta tag or client-side script for continuous wall display.
 * **Verification:** Both calendar and grocery modules render side-by-side with zero manual refreshing.
 
-### Phase 4: Hardware Deployment & Mounting (Hours 26–30)
+### Phase 4: Packagin, Testing, and Deployment Readiness (Hours 26–30)
 * [ ] Deploy the FastAPI app locally on your home network (or a lightweight cloud free-tier).
-* [ ] Configure your 2-in-1 Chromebook in Tablet Mode with a full-screen browser pointing to the dashboard URL.
-* [ ] Mount the device to the wall with a long USB-C power cable and secure housing.
-* **Verification:** The wall-mounted touchscreen runs the app 24/7 without human intervention.
+* [ ] Writing clear, step-by-step instructions in the README.md (cloning, .env setup, running with Uvicorn).
+* [ ] Adding environment configuration handling (e.g. using pydantic-settings or python-dotenv).
+* [ ] Writing unit tests for calendar-parsing and task logic.
+* [ ] Setting up a simple script so the server launcehs automatically on boot.
+
 
 ---
 
-## 🚀 Version 2.0+ Future Roadmap
+## Version 2.0+ Future Roadmap
 
-*Note: Future features will be modularized into separate Python packages to keep the core server clean.*
+*Note: Future features will be modularised into separate Python packages to keep the core server clean.*
 
 ### Phase 1: Smart Home & Household Context (V2.1)
 * [ ] **Local Weather & Rain Alerts:** Integrate OpenWeatherMap API with custom warning banners.
@@ -48,5 +51,7 @@ A ~30-hour personal engineering project to build, deploy, and mount a centralize
 * [ ] **Kid's Chore Tracker:** Interactive touch checkboxes mapped to individual family member profiles.
 * [ ] **Digital Sticky Note Board:** A lightweight mobile form endpoint allowing family members to pin quick notes to the wall screen from their phones.
 
-### Phase 4: System Resilience (V2.4)
-* [ ] **Offline JSON Caching:** Fallback data storage so temporary Wi-Fi drops don't break the wall display.
+### Phase 4: Physical Mounting
+* [ ] Configure device (i.e. Chromebook in Tablet Mode) with a full-screen browser pointing to the dashboard URL.
+* [ ] Mount the device to the wall with a long USB-C power cable and secure housing.
+* **Verification:** The wall-mounted touchscreen runs the app 24/7 without human intervention.
