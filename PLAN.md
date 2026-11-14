@@ -15,6 +15,7 @@ A ~30-hour personal engineering project to build and deploy a centralised househ
 ### Phase 2: Calendar Feed Integration (Hours 6–15)
 * [ ] Write a Python HTTP client function to fetch the `.ics` calendar feed URL securely from environment variables.
 * [ ] Integrate an `.ics` parsing library to extract event titles, dates, and times.
+* [ ] Adding environment configuration handling (e.g. using pydantic-settings or python-dotenv).
 * [ ] Pass parsed event data from Python into the Jinja2 HTML template.
 * [ ] Offline JSON Caching: Fallback data storage so temporary Wi-Fi drops don't break the wall display.
 * **Verification:** The dashboard dynamically displays upcoming Apple/iCloud events.
@@ -25,13 +26,12 @@ A ~30-hour personal engineering project to build and deploy a centralised househ
 * [ ] Add a 60-second auto-refresh meta tag or client-side script for continuous wall display.
 * **Verification:** Both calendar and grocery modules render side-by-side with zero manual refreshing.
 
-### Phase 4: Packagin, Testing, and Deployment Readiness (Hours 26–30)
+### Phase 4: Packaging, Testing, and Deployment Readiness (Hours 26–30)
 * [ ] Deploy the FastAPI app locally on your home network (or a lightweight cloud free-tier).
 * [ ] Writing clear, step-by-step instructions in the README.md (cloning, .env setup, running with Uvicorn).
-* [ ] Adding environment configuration handling (e.g. using pydantic-settings or python-dotenv).
 * [ ] Writing unit tests for calendar-parsing and task logic.
-* [ ] Setting up a simple script so the server launcehs automatically on boot.
-
+* [ ] Setting up a simple script so the server launches automatically on boot.
+* **Verification:** A fresh clone of the repository in a new virtual environment successfully passes all unit tests, reads from .env, and launches via the startup script to serve the dashboard on the local network.
 
 ---
 
@@ -54,4 +54,3 @@ A ~30-hour personal engineering project to build and deploy a centralised househ
 ### Phase 4: Physical Mounting
 * [ ] Configure device (i.e. Chromebook in Tablet Mode) with a full-screen browser pointing to the dashboard URL.
 * [ ] Mount the device to the wall with a long USB-C power cable and secure housing.
-* **Verification:** The wall-mounted touchscreen runs the app 24/7 without human intervention.
