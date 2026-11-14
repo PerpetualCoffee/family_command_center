@@ -1,5 +1,7 @@
 # Fetching the .ics feed, parsing events, date math, cachine
 
+# from config import settings
+
 def get_upcoming_events():
     #parsing logic
     return [{"title": "Dentist", "time": "14:00"}]
