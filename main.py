@@ -12,21 +12,30 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 def dashboard(request: Request):
-    events = get_upcoming_events()
+    # 1. Call the function
+    events_data = get_upcoming_events()
+
+    # 2. Quick debug print to check what main.py actually sees
+    print("--- DEBUG ---")
+    print("Keys in schedule:", events_data.keys())
+    print("Count in this_week:", len(events_data.get("this_week", [])))
+    print("Count in later:", len(events_data.get("later", [])))
+    print("-------------")
+
+    # 3. Pass into context
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={"title": "Family Command Center", "events": events}
+        context={
+            "title": "Family Command Center",
+            "date_range": events_data.get("date_range", ""),
+            "planning_events": events_data.get("planning_events", []),
+            "this_week": events_data.get("this_week", []),
+            "later": events_data.get("later", []),
+        }
     )
 
-"""
-use requests once to download calendar feed and save it to a local test_calendar.ics file
-   write parsing logic against the local file first; then change to the live version
-   
-   The local JSON Cache Pattern
-   1. attempt fetch
-   2. on success; parse the .ics, write the parsed events into cache.json and return the data
-   3. on failure (e.g. RequestException or timeout): Catch the error, log a warning, load and return the contents of cache.json instead"""
+
 
 
 # if __name__ == "__main__":

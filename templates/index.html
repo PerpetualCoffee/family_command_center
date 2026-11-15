@@ -7,14 +7,38 @@
     </head>
     <body>
         <h1>Family Command Center</h1>
-        <p>Hello, World! Phase 1 server is live.</p>
         <p>And now, Phase 2 is live!</p>
-        <ul>
-            {% for event in events %}
-            <li>
-                <strong>{{ event.title }}</strong> - {{ event.start}}
-            </li>
-            {% endfor %}
-        </ul></p>
+        <section class="this-week">
+            <h2>What's on this Week ({{ date_range }}):</h2>
+            <ul>
+                {% for event in this_week %}
+                <li>
+                    <strong>{{ event.title }}</strong> - {{ event.start}}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="looking-ahead">
+            <h2>Looking Ahead:</h2>
+            <ul>
+                {% for event in later %}
+                <li>
+                    <strong>{{ event.title }}</strong> - {{ event.start}}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="planning-required">
+            <h2>Countdowns & Planning Required:</h2>
+            <ul>
+                {% for event in planning_events %}
+                <li>
+                    <strong>{{ event.countdown }}</strong> - {{ event.title }} ({{ event.start }})
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
     </body>
 </html>
