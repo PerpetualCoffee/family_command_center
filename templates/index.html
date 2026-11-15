@@ -8,5 +8,13 @@
     <body>
         <h1>Family Command Center</h1>
         <p>Hello, World! Phase 1 server is live.</p>
+        <p>And now, Phase 2 is live!</p>
+        <ul>
+            {% for event in events %}
+            <li>
+                <strong>{{ event.title }}</strong> - {{ event.start}}
+            </li>
+            {% endfor %}
+        </ul></p>
     </body>
 </html>
